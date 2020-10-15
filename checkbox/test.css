@@ -1,0 +1,88 @@
+body {
+    font-family: Arial;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 400px;
+}
+
+.description {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 10px;
+    font-size: 18px;
+    height: 18px;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.description {
+    display: inline-block;
+    width: 70px;
+}
+
+.checkbox {
+    display: inline-block;
+}
+
+.f-1, .h-1, .a-1, .d-1 {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+.f-1 + label, .h-1 + label, .a-1 + label, .d-1 + label {
+    display: inline-flex;
+}
+
+.f-1 + label::before, .h-1 + label::before, .a-1 + label::before, .d-1 + label::before {
+    content: '';
+    width: 18px;
+    height: 18px;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.f-1:checked + label::before, .h-1:checked + label::before, .a-1:checked + label::before, .d-1:checked + label::before {
+    border-color: #127ef6;
+    background-color: #127ef6;
+    /*content: '✓';*/
+    text-align: center;
+    color: white;
+    font-size: 15px;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 7'%3e%3cpath fill='white' d='M7.13103 1.16956L6.29523 0.620529L3.24153 5.26919L0.852441 3.70989L0.305878 4.54731L3.52585 6.64891L3.83038 6.18232L3.83581 6.18588L7.13103 1.16956Z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+
+}
+
+.f-1:focus + label::before {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.3rem rgba(11, 118, 239, 0.28);
+}
+
+.h-1:not(:checked):hover + label::before {
+    border-color: rgba(11, 118, 239, 0.28);
+}
+
+.a-1:not(:checked):active + label::before {
+    background-color: rgba(11, 118, 239, 0.28);
+}
+
+.d-1:disabled + label::before {
+    background-color: rgba(211, 211, 211, 0.4);
+    border-color: rgba(211, 211, 211, 0.4);
+    color: rgba(211, 211, 211, 0.4);
+}
+
+.d-1:disabled + label {
+    color: rgba(211, 211, 211, 0.82);
+}
