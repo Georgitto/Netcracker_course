@@ -1,0 +1,26 @@
+li {
+    list-style-type: none;
+}
+
+li:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+ul {
+    padding-left: 0;
+}
+
+.container {
+    display: flex;
+    height: 400px;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-list {
+    margin: 0;
+}
+
+.item-checkbox.checkbox {
+    justify-self: start;
+}
