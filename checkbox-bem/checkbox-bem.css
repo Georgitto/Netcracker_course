@@ -11,6 +11,7 @@
     height: 400px;
     align-items: center;
     justify-content: center;
+    font-family: Arial;
 }
 
 .container-list {
@@ -32,3 +33,49 @@
     justify-self: flex-end;
 }
 
+.checkbox__focused, .checkbox__hovered, .checkbox__active, .checkbox__disabled {
+    opacity: 0;
+}
+
+.checkbox__focused + label::before, .checkbox__hovered + label::before, .checkbox__active + label::before, .checkbox__disabled + label::before {
+    content: '';
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    border: 0.5px solid lightgrey;
+    border-radius: 3px;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.checkbox__focused:checked + label::before, .checkbox__hovered:checked + label::before, .checkbox__active:checked + label::before, .checkbox__disabled:checked + label::before {
+    text-align: center;
+    color: white;
+    border-color: #127ef6;
+    background-color: #127ef6;
+    font-size: 15px;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 7'%3e%3cpath fill='white' d='M7.13103 1.16956L6.29523 0.620529L3.24153 5.26919L0.852441 3.70989L0.305878 4.54731L3.52585 6.64891L3.83038 6.18232L3.83581 6.18588L7.13103 1.16956Z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+}
+
+.checkbox__focused:focus + label::before {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.3rem rgba(11, 118, 239, 0.28);
+}
+
+.checkbox__hovered:hover + label::before {
+    border-color: rgba(11, 118, 239, 0.28);
+}
+
+.checkbox__active:not(:checked):active + label::before {
+    background-color: rgba(11, 118, 239, 0.28);
+}
+
+.checkbox__disabled:disabled + label {
+    color: rgba(211, 211, 211, 0.82);
+}
+
+.checkbox__disabled:disabled + label::before {
+    background-color: rgba(211, 211, 211, 0.4);
+    border-color: rgba(211, 211, 211, 0.4);
+    color: rgba(211, 211, 211, 0.4);
+}
