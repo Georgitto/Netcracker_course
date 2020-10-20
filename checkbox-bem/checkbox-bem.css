@@ -16,7 +16,7 @@
 
 .container-list {
     position: absolute;
-    left: calc(50% - 52px);
+    left: calc(50% - 158px);
     padding-left: 0;
 }
 
@@ -34,7 +34,10 @@
 }
 
 .checkbox__focused, .checkbox__hovered, .checkbox__active, .checkbox__disabled {
-    opacity: 0;
+    position: absolute;
+    z-index: -1;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
 }
 
 .checkbox__focused + label::before, .checkbox__hovered + label::before, .checkbox__active + label::before, .checkbox__disabled + label::before {
